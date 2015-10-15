@@ -17,6 +17,7 @@
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato';
+                background: url('images/pattern.png');
             }
 
             .container {
