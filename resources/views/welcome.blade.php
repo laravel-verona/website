@@ -10,11 +10,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link href="css/website.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="container">
             <div class="content">
+                <i class="icon ion-calendar"></i>
+
                 <div class="title">1° Laravel Meetup a Verona</div>
                 <div class="subtitle">14 novembre 2015</div>
 
