@@ -11,6 +11,8 @@
 
         <link href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="{{ elixir('assets/css/all.css') }}">
+
+        @include('partials.event-snippet')
     </head>
     <body>
         <div class="overlay"></div>
@@ -19,9 +21,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        @include('logo')
-                        <h1 class="title">Laravel Meetup Verona</h1>
-                        <h2 class="subtitle">14 novembre 2015</h2>
+                        @include('partials.logo')
+                        <h1 class="title">{{ config('website.name') }}</h1>
+                        <h2 class="subtitle">{{ config('website.event.date')->format('j F Y') }}</h2>
 
                         <div class="row">
                             <div class="info col-md-8 col-md-offset-2">
@@ -38,7 +40,7 @@
                             <div id="countdown-seconds" class="countdown-partial"></div>
                         </div>
 
-                        <a class="btn btn-lg btn-laravel" target="_blank" href="http://www.meetup.com/it/laravel-verona/">PARTECIPA AL MEETUP</a>
+                        <a class="btn btn-lg btn-laravel" target="_blank" href="{{ config('website.group.url') }}">PARTECIPA AL MEETUP</a>
                     </div>
                 </div>
 
@@ -50,18 +52,7 @@
             </div>
         </div>
 
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-8557461-13', 'auto');
-            ga('send', 'pageview');
-        </script>
-
-        @include('javascript')
-
+        @include('partials.javascript')
         <script src="{{ elixir('assets/js/all.js') }}"></script>
     </body>
 </html>

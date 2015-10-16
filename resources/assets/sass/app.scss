@@ -54,13 +54,13 @@ h1, h2, h3, h4, h5, h6 {
     position: fixed;
     background: url('#{$images-path}/overlay.png') top left;
 }
-.btn-laravel  {
+.btn-laravel {
     border-color: $laravel-color-dark;
     background-color: $laravel-color;
 }
 .btn-laravel:hover,
 .btn-laravel:focus,
-.btn-laravel:active  {
+.btn-laravel:active {
     border-color: $laravel-color-dark;
     background-color: $laravel-color-dark;
 }
@@ -161,6 +161,9 @@ h1, h2, h3, h4, h5, h6 {
 @media only screen and (max-width : 480px) {
     .title {
         font-size: 40px;
+    }
+    .btn-laravel {
+        display: block;
     }
 }
 
