@@ -24,13 +24,16 @@
                     <div class="col-md-12">
                         @include('partials.logo')
                         <h1 class="title">{{ config('website.name') }}</h1>
-                        <h2 class="subtitle">{{ config('website.event.date')->format('j F Y') }}</h2>
+                        <h2 class="subtitle">{{ config('website.event.start')->format('j F Y') }}</h2>
 
                         <div class="row">
                             <div class="info col-md-8 col-md-offset-2">
                                 <p>Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare.</p>
-                                <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze.</p>
-                                <p>Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>
+                                <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze. Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>
+
+                                <p class="event-reminder">
+                                    Ti aspettiamo {{ config('website.event.start')->format('l j F') }}, dalle {{ config('website.event.start')->format('H:i') }} alle {{ config('website.event.end')->format('H:i') }}, al {{ config('website.event.name') }}
+                                </p>
                             </div>
                         </div>
 

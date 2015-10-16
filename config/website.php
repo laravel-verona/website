@@ -10,9 +10,10 @@ return [
     ],
 
     'event' => [
-        'name' => '1° Laravel Meetup Verona',
-        'date' => Date::create(2015, 11, 14, 15, 30),
-        'url'  => 'http://www.meetup.com/it/laravel-verona/events/225956895/',
+        'name'  => '1° Laravel Meetup Verona',
+        'start' => Date::create(2015, 11, 14, 15, 30),
+        'end'   => Date::create(2015, 11, 14, 18, 00),
+        'url'   => 'http://www.meetup.com/it/laravel-verona/events/225956895/',
     ],
 
     'facebook' => [

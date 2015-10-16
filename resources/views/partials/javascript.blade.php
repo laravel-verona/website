@@ -7,5 +7,5 @@
     ga('create', 'UA-8557461-13', 'auto');
     ga('send', 'pageview');
 
-    var eventDate = "{{ config('website.event.date') }}";
+    var eventDate = "{{ config('website.event.start') }}";
 </script>
