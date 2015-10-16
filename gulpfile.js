@@ -1,5 +1,8 @@
 var elixir = require('laravel-elixir');
 
+// Force minify CSS and JavaScript files
+elixir.config.production = true;
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,5 +15,20 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix
+        .sass([
+            'app.scss'
+        ], 'public/assets/css/all.css', './')
+        .scripts([
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/jquery-countdown/dist/jquery.countdown.min.js',
+            'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+            'resources/assets/js/app.js'
+        ], 'public/assets/js/all.js', './')
+        .version([
+            'public/assets/css/all.css',
+            'public/assets/js/all.js'
+        ])
+        .copy('resources/assets/images/', 'public/assets/images/')
+        .copy('resources/assets/images/', 'public/build/assets/images/');
 });
