@@ -3,7 +3,7 @@
 {
     "@context": "http://schema.org",
     "@type": "Event",
-    "name": "{{ config('website.eventname')}}",
+    "name": "{{ config('website.event.name')}}",
     "startDate" : "{{ config('website.event.date')->format('Y-m-d\TH:i:sP') }}",
     "url" : "http://www.meetup.com/it/laravel-verona/events/225956895/",
     "location" : {
