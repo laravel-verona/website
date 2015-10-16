@@ -38,7 +38,7 @@
                             <div id="countdown-seconds" class="countdown-partial"></div>
                         </div>
 
-                        <a class="btn btn-lg btn-laravel" target="_blank" href="http://www.meetup.com/it/laravel-verona/">SCOPRI I DETTAGLI DEL MEETUP</a>
+                        <a class="btn btn-lg btn-laravel" target="_blank" href="http://www.meetup.com/it/laravel-verona/">PARTECIPA AL MEETUP</a>
                     </div>
                 </div>
 
