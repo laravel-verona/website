@@ -14,4 +14,8 @@ return [
         'date' => Date::create(2015, 11, 14, 15, 30),
         'url'  => 'http://www.meetup.com/it/laravel-verona/events/225956895/',
     ],
+
+    'facebook' => [
+        'url' => 'https://www.facebook.com/groups/laravelverona/',
+    ],
 ];

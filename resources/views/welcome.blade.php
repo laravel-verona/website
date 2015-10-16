@@ -9,8 +9,9 @@
         <meta name="keywords" content="laravel, php, framework, web, meetup, verona">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ elixir('assets/css/all.css') }}">
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ elixir('assets/css/all.css') }}">
 
         @include('partials.event-snippet')
     </head>
@@ -46,7 +47,9 @@
 
                 <footer class="row">
                     <div class="col-md-12">
-
+                        <a target="_blank" class="social-icon" href="{{ config('website.facebook.url') }}">
+                            <i class="fa fa-facebook-official"></i>
+                        </a>
                     </div>
                 </footer>
             </div>
