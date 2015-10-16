@@ -11,7 +11,7 @@ body {
     background: url('#{$images-path}/verona.jpg') no-repeat top center;
 }
 #wrapper {
-    padding: 50px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 880px;
     font-size: 45px;
     font-weight: 300;
-    margin: 30px auto 50px;
+    margin: 20px auto 30px;
 
     .countdown-partial {
         float: left;
@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
  |--------------------------------------------------------------------------
  */
 footer {
-    margin-top: 30px;
+    margin-top: 20px;
 
     .social-icon {
         font-size: 40px;
