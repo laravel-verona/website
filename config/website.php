@@ -19,6 +19,6 @@ return [
     ],
 
     'facebook' => [
-        'url' => 'https://www.facebook.com/groups/laravelverona/',
+        'url' => 'https://www.facebook.com/Laravel-Verona-1624060217861538/',
     ],
 ];
