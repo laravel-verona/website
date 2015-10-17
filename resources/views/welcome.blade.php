@@ -5,14 +5,28 @@
         <title>{{ config('website.name') }}</title>
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare">
+        <meta name="description" content="{{ config('website.description') }}">
         <meta name="keywords" content="laravel, php, framework, web, meetup, verona">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ elixir('assets/css/all.css') }}">
 
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="{{ config('website.name') }}" />
+        <meta property="og:url" content="{{ URL::current() }}" />
+        <meta property="og:description" content="{{ config('website.description') }}" />
+        <meta property="og:image" content="{{ asset('build/assets/images/preview.jpg') }}" />
+        <meta property="og:image:width" content="750" />
+        <meta property="og:image:height" content="389" />
+        <meta property="og:locale" content="it_IT" />
+        <meta name="twitter:image" content="{{ asset('build/assets/images/preview.jpg') }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+
+        <!-- Rich Snippet -->
         @include('partials.event-snippet')
     </head>
     <body>

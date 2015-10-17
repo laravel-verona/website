@@ -3,7 +3,9 @@
 use Jenssegers\Date\Date;
 
 return [
-    'name' => 'Laravel Meetup Verona',
+    'name'        => 'Laravel Meetup Verona',
+    'preview'     => 'build/assets/images/preview.jpg',
+    'description' => "Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare",
 
     'group' => [
         'url' => 'http://www.meetup.com/it/laravel-verona/',
