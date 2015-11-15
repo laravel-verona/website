@@ -12,13 +12,13 @@ return [
     ],
 
     'event' => [
-        'name'  => '1° Laravel Meetup Verona',
-        'start' => Date::create(2015, 11, 14, 15, 30),
-        'end'   => Date::create(2015, 11, 14, 18, 00),
-        'url'   => 'http://www.meetup.com/it/laravel-verona/events/225956895/',
+        'name'  => '2° Laravel Meetup Verona',
+        'start' => Date::create(2015, 12, 12, 14, 30),
+        'end'   => Date::create(2015, 12, 12, 18, 00),
+        'url'   => 'http://www.meetup.com/it/laravel-verona/events/226778039/',
     ],
 
     'facebook' => [
-        'url' => 'https://www.facebook.com/Laravel-Verona-1624060217861538/',
+        'url' => 'https://www.facebook.com/laravel.verona/',
     ],
 ];
