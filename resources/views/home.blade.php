@@ -36,7 +36,7 @@
                     <div id="countdown-seconds" class="countdown-partial"></div>
                 </div>
 
-                <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('website.group.url') }}">PARTECIPA AL MEETUP</a>
+                <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('website.social.meetup') }}">PARTECIPA AL MEETUP</a>
 
                 @set('map_embed', config('website.event.venue.map_embed'))
 

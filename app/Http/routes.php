@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home', function () {
+    return view('home');
+}]);
+
+Route::get('notes', ['as' => 'notes', function () {
+    return view('notes');
+}]);
