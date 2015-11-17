@@ -20,8 +20,9 @@ elixir(function(mix) {
             'app.scss'
         ], 'public/assets/css/app.css')
         .styles([
+            'public/assets/css/app.css',
             'node_modules/animate.css/animate.min.css'
-        ], 'public/assets/css/vendor.css', './')
+        ], 'public/assets/css/all.css', './')
         .scripts([
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/jquery-countdown/dist/jquery.countdown.min.js',

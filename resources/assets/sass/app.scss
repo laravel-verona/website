@@ -115,8 +115,14 @@ h1, h2, h3, h4, h5, h6 {
  */
 .navbar-lmv .navbar-brand {
     font-weight: bold;
+    transition: all 0.5s ease;
     text-transform: uppercase;
     font-family: $font-raleway;
+
+    &:hover,
+    &:focus {
+        background-color: $navbar-inverse-link-hover-bg;
+    }
 }
 
 /*
