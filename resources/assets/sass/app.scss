@@ -50,6 +50,9 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     background: url('#{$images-path}/overlay.png') top left;
 }
+.scroll-off {
+    pointer-events: none;
+}
 
 /*
  |--------------------------------------------------------------------------
