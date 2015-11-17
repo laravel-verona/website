@@ -25,24 +25,60 @@
         @include('partials.event-snippet')
 
         <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900">
+        <!--<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900">-->
+        <link href="http://fonts.googleapis.com/css?family=Raleway:200,300,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ elixir('assets/css/all.css') }}">
     </head>
     <body>
-        <div class="overlay"></div>
+        <nav class="navbar navbar-dark navbar-lmv navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="/">{{ config('website.name') }}</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="#notes">Notes</a>
+                        </li>
+                        <li>
+                            <a href="#notes">Staff</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="header">
+            <div class="overlay"></div>
+
+            <div class="title-cont">
+                @include('partials.logo')
+
+                <h1 class="title">{{ config('website.event.name') }}</h1>
+                <h2 class="subtitle">{{ config('website.event.start')->format('j F Y') }}</h2>
+            </div>
+        </header>
 
         <div id="wrapper">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        @include('partials.logo')
-                        <h1 class="title">{{ config('website.name') }}</h1>
-                        <h2 class="subtitle">{{ config('website.event.start')->format('j F Y') }}</h2>
-
                         <div class="row">
                             <div class="info col-md-8 col-md-offset-2">
-                                <p>Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare.</p>
+                                <h1>Cosa stai aspettando ?</h1>
+
+                                <p>Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP e Laravel che vogliono partecipare.</p>
                                 <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze. Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>
 
                                 <p class="event-reminder">
@@ -58,19 +94,27 @@
                             <div id="countdown-seconds" class="countdown-partial"></div>
                         </div>
 
-                        <a class="btn btn-lg btn-laravel" target="_blank" href="{{ config('website.group.url') }}">PARTECIPA AL MEETUP</a>
+                        <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('website.group.url') }}">PARTECIPA AL MEETUP</a>
                     </div>
                 </div>
-
-                <footer class="row">
-                    <div class="col-md-12">
-                        <a target="_blank" class="social-icon" href="{{ config('website.facebook.url') }}">
-                            <i class="fa fa-facebook-official"></i>
-                        </a>
-                    </div>
-                </footer>
             </div>
         </div>
+
+        <footer>
+            <div class="container text-center">
+                &copy {{ date('Y') }} Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+
+                <br /><br />
+
+                <a target="_blank" class="social-icon" href="{{ config('website.facebook.url') }}">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+
+                <a target="_blank" class="social-icon" href="#">
+                    <i class="fa fa-github"></i>
+                </a>
+            </div>
+        </footer>
 
         @include('partials.javascript')
         <script src="{{ elixir('assets/js/all.js') }}"></script>
