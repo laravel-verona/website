@@ -4,7 +4,8 @@
     "gulp": "^3.8.8"
   },
   "dependencies": {
-    "bootstrap-sass": "^3.0.0",
+    "animate.css": "^3.4.0",
+    "bootstrap-sass": "^3.3.5",
     "jquery": "^2.1.4",
     "jquery-countdown": "^2.0.5",
     "laravel-elixir": "^3.0.0"

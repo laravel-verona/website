@@ -18,7 +18,10 @@ elixir(function(mix) {
     mix
         .sass([
             'app.scss'
-        ], 'public/assets/css/all.css', './')
+        ], 'public/assets/css/app.css')
+        .styles([
+            'node_modules/animate.css/animate.min.css'
+        ], 'public/assets/css/vendor.css', './')
         .scripts([
             'node_modules/jquery/dist/jquery.min.js',
             'node_modules/jquery-countdown/dist/jquery.countdown.min.js',
@@ -29,5 +32,5 @@ elixir(function(mix) {
             'public/assets/css/all.css',
             'public/assets/js/all.js'
         ])
-        .copy('resources/assets/images/', 'public/assets/images/')
+        .copy('resources/assets/images/', 'public/assets/images/');
 });
