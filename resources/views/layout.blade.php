@@ -14,11 +14,11 @@
         <meta property="og:title" content="{{ config('website.name') }}" />
         <meta property="og:url" content="{{ URL::current() }}" />
         <meta property="og:description" content="{{ config('website.description') }}" />
-        <meta property="og:image" content="{{ asset('build/assets/images/preview.jpg') }}" />
+        <meta property="og:image" content="{{ asset('assets/images/preview.jpg') }}" />
         <meta property="og:image:width" content="750" />
         <meta property="og:image:height" content="389" />
         <meta property="og:locale" content="it_IT" />
-        <meta name="twitter:image" content="{{ asset('build/assets/images/preview.jpg') }}" />
+        <meta name="twitter:image" content="{{ asset('assets/images/preview.jpg') }}" />
         <meta name="twitter:card" content="summary_large_image" />
 
         <!-- Rich Snippet -->
