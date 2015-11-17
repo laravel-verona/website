@@ -5,8 +5,8 @@
     <div class="overlay"></div>
 
     <div class="title-cont">
-        <h1 class="title animated slideInUp">{{ config('website.event.name') }}</h1>
-        <h2 class="subtitle animated flipInX">{{ config('website.event.start')->format('j F Y') }}</h2>
+        <h1 class="title animated slideInUp">{{ config('lmv.event.name') }}</h1>
+        <h2 class="subtitle animated flipInX">{{ config('lmv.event.start')->format('j F Y') }}</h2>
     </div>
 </header>
 

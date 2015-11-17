@@ -37,8 +37,8 @@ class CloneAnnotations extends Command
      */
     public function handle()
     {
-        $path = config('website.annotations.path');
-        $repository = config('website.annotations.repository');
+        $path = config('lmv.annotations.path');
+        $repository = config('lmv.annotations.repository');
 
         if (is_dir($path)) {
             $this->info('Pulling from repository ...');

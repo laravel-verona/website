@@ -7,8 +7,8 @@
     <div class="title-cont">
         @include('partials.logo')
 
-        <h1 class="title animated slideInUp">{{ config('website.event.name') }}</h1>
-        <h2 class="subtitle animated flipInX">{{ config('website.event.start')->format('j F Y') }}</h2>
+        <h1 class="title animated slideInUp">{{ config('lmv.event.name') }}</h1>
+        <h2 class="subtitle animated flipInX">{{ config('lmv.event.start')->format('j F Y') }}</h2>
     </div>
 </header>
 
@@ -24,7 +24,7 @@
                         <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze. Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>
 
                         <h3 class="event-reminder">
-                            Ti aspettiamo {{ config('website.event.start')->format('l j F') }}, dalle {{ config('website.event.start')->format('H:i') }} alle {{ config('website.event.end')->format('H:i') }}, al {{ config('website.event.name') }}
+                            Ti aspettiamo {{ config('lmv.event.start')->format('l j F') }}, dalle {{ config('lmv.event.start')->format('H:i') }} alle {{ config('lmv.event.end')->format('H:i') }}, al {{ config('lmv.event.name') }}
                         </h3>
                     </div>
                 </div>
@@ -36,9 +36,9 @@
                     <div id="countdown-seconds" class="countdown-partial"></div>
                 </div>
 
-                <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('website.social.meetup') }}">PARTECIPA AL MEETUP</a>
+                <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('lmv.social.meetup') }}">PARTECIPA AL MEETUP</a>
 
-                @set('map_embed', config('website.event.venue.map_embed'))
+                @set('map_embed', config('lmv.event.venue.map_embed'))
 
                 @if ($map_embed)
                 <div id="map_cont" class="row">

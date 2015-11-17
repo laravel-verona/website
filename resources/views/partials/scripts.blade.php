@@ -9,7 +9,7 @@
     ga('send', 'pageview');
 
     // Local var
-    var eventDate = "{{ config('website.event.start') }}";
+    var eventDate = "{{ config('lmv.event.start') }}";
 </script>
 
 <script src="{{ elixir('assets/js/all.js') }}"></script>
