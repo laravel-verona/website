@@ -7,10 +7,6 @@ return [
     'preview'     => 'build/assets/images/preview.jpg',
     'description' => "Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare",
 
-    'group' => [
-        'url' => 'http://www.meetup.com/it/laravel-verona/',
-    ],
-
     'event' => [
         'name'  => '2° Laravel Meetup Verona',
         'start' => Date::create(2015, 12, 12, 14, 30),
@@ -26,6 +22,12 @@ return [
 
     'social' => [
         'github'   => 'https://github.com/laravel-verona',
+        'meetup'   => 'http://www.meetup.com/it/laravel-verona/',
         'facebook' => 'https://www.facebook.com/laravel.verona/',
+    ],
+
+    'annotations' => [
+        'path'       => storage_path('clone/annotations'),
+        'repository' => 'https://github.com/laravel-verona/annotations.git',
     ],
 ];
