@@ -44,6 +44,8 @@
         <link href="http://fonts.googleapis.com/css?family=Raleway:200,300,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ elixir('assets/css/all.css') }}">
+
+        @yield('styles')
     </head>
     <body>
         @include('partials.navbar')
@@ -52,5 +54,7 @@
 
         @include('partials.footer')
         @include('partials.scripts')
+
+        @yield('scripts')
     </body>
 </html>

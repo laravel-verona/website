@@ -37,6 +37,16 @@
                 </div>
 
                 <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('website.group.url') }}">PARTECIPA AL MEETUP</a>
+
+                <div id="map_cont" class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <h1>Ti aspettiamo qui</h1>
+
+                        <div id="map_embed" class="embed-responsive embed-responsive-16by9">
+                            <iframe id="map_canvas" src="{{ config('website.event.venue.map_embed') }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
