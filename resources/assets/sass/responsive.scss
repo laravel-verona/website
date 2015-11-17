@@ -1,0 +1,50 @@
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    #countdown {
+        width: 100%;
+        font-size: 30px;
+        position: relative;
+
+        .countdown-partial {
+            width: 46%;
+            margin: 2%;
+        }
+
+        .countdown-partial:nth-child(2n+1) {
+            clear: left;
+        }
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    .header {
+        .title-cont {
+            .title {
+                font-size: 34px;
+            }
+            .subtitle {
+                font-size: 28px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .btn-lmv {
+        display: block;
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+
+}

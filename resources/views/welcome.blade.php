@@ -25,13 +25,12 @@
         @include('partials.event-snippet')
 
         <!-- Styles -->
-        <!--<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:400,300,700,900">-->
         <link href="http://fonts.googleapis.com/css?family=Raleway:200,300,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="{{ elixir('assets/css/all.css') }}">
     </head>
     <body>
-        <nav class="navbar navbar-dark navbar-lmv navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-lmv navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -59,24 +58,24 @@
             </div>
         </nav>
 
-        <header class="header">
+        <header class="header text-center">
             <div class="overlay"></div>
 
             <div class="title-cont">
                 @include('partials.logo')
 
-                <h1 class="title">{{ config('website.event.name') }}</h1>
-                <h2 class="subtitle">{{ config('website.event.start')->format('j F Y') }}</h2>
+                <h1 class="title animated slideInUp">{{ config('website.event.name') }}</h1>
+                <h2 class="subtitle animated flipInX">{{ config('website.event.start')->format('j F Y') }}</h2>
             </div>
         </header>
 
-        <div id="wrapper">
+        <div id="wrapper" class="text-center">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="info col-md-8 col-md-offset-2">
-                                <h1>Cosa stai aspettando ?</h1>
+                                <h1>Unisciti a noi !</h1>
 
                                 <p>Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP e Laravel che vogliono partecipare.</p>
                                 <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze. Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>

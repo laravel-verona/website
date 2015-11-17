@@ -1,37 +1,37 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "bootstrap-custom";
+
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-$images-path: '../images';
+/*
+ |--------------------------------------------------------------------------
+ | LMV VARIABLES
+ |--------------------------------------------------------------------------
+ */
+$font-raleway: 'Raleway', sans-serif;
+$images-path: '/assets/images';
 $laravel-color: #e74430;
 
-body {
-    color: #333333;
-}
-#wrapper {
-    padding-top: 20px;
-    text-align: center;
+/*
+ |--------------------------------------------------------------------------
+ | MIXINS
+ |--------------------------------------------------------------------------
+ */
+@mixin vertical-align($position: relative) {
+    top: 50%;
+    position: $position;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 /*
  |--------------------------------------------------------------------------
- | RESET
+ | MAIN
  |--------------------------------------------------------------------------
  */
-a {
-    color: #fff;
-}
-a:hover,
-a:focus,
-a:active {
-    text-decoration: underline;
-}
-.btn {
-    color: #fff;
-    border-radius: 0;
-}
-.btn:hover,
-.btn:focus,
-.btn:active {
-    color: #fff;
+body {
+    color: $gray-dark;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
@@ -50,31 +50,62 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
     background: url('#{$images-path}/overlay.png') top left;
 }
+
+/*
+ |--------------------------------------------------------------------------
+ | HEADER
+ |--------------------------------------------------------------------------
+ */
 .header {
     color: #fff;
     height: 500px;
     padding-top: 40px;
     position: relative;
-    text-align: center;
-    background: url('http://c1.staticflickr.com/1/398/18530095174_a2a7029f72_k.jpg') no-repeat left center;
+    background: url('#{$images-path}/header_opt.jpg') no-repeat left center;
     background-size: cover;
-}
-.header .title-cont {
-    top: 50%;
-    position: relative;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+
+    .laravel-logo {
+        width: 180px;
+
+        path {
+            fill: #fff;
+        }
+    }
+
+    .title-cont {
+        @include vertical-align();
+
+        .title {
+            margin: 20px 0;
+            font-size: 55px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            margin-top: -5px;
+            padding: 10px 15px;
+            display: inline-block;
+            background-color: $laravel-color;
+        }
+    }
 }
 
+/*
+ |--------------------------------------------------------------------------
+ | BUTTONS
+ |--------------------------------------------------------------------------
+ */
 .btn-lmv {
+    color: #fff;
     border-color: $laravel-color;
     background-color: $laravel-color;
-}
-.btn-lmv:hover,
-.btn-lmv:focus {
-    border-color: $laravel-color;
-    background-color: $laravel-color;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        border-color: darken($laravel-color, 5%);
+        background-color: darken($laravel-color, 5%);
+    }
 }
 
 /*
@@ -82,36 +113,10 @@ h1, h2, h3, h4, h5, h6 {
  | NAVBAR
  |--------------------------------------------------------------------------
  */
-.navbar-lmv {
-    border: none;
-    background-color: rgba(57, 72, 100, 0.9);
-}
 .navbar-lmv .navbar-brand {
     font-weight: bold;
     text-transform: uppercase;
-    font-family: 'Raleway', sans-serif;
-}
-.navbar-lmv .navbar-brand:focus,
-.navbar-lmv .navbar-brand:hover, {
-    color: #fff;
-}
-.navbar-lmv .navbar-brand,
-.navbar-lmv .navbar-nav > li >a  {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-.navbar-lmv .navbar-nav > li > a:focus,
-.navbar-lmv .navbar-nav > li > a:hover {
-    color: #fff;
-    background-color: #2f3c54;
-}
-.navbar-lmv .navbar-nav > .active > a,
-.navbar-lmv .navbar-nav > .active > a:focus,
-.navbar-lmv .navbar-nav > .active > a:hover,
-.navbar-lmv .navbar-nav > .open > a,
-.navbar-lmv .navbar-nav > .open > a:focus,
-.navbar-lmv .navbar-nav > .open > a:hover {
-    background-color: #2f3c54;
+    font-family: $font-raleway;
 }
 
 /*
@@ -119,32 +124,16 @@ h1, h2, h3, h4, h5, h6 {
  | CONTENT
  |--------------------------------------------------------------------------
  */
-.laravel-logo {
-    width: 180px;
-}
-.laravel-logo path {
-    fill: #fff;
-}
-.title {
-    margin: 20px 0;
-    font-size: 55px;
-    text-transform: uppercase;
-}
-.subtitle {
-    margin-top: -5px;
-    padding: 10px 15px;
-    display: inline-block;
-    background-color: $laravel-color;
-}
 .info {
     font-size: 16px;
 
     p {
         margin-bottom: 20px;
     }
+
     .event-reminder {
         font-size: 18px;
-        font-weight: 900;
+        font-weight: bold;
         text-transform: uppercase;
     }
 }
@@ -155,22 +144,27 @@ h1, h2, h3, h4, h5, h6 {
  |--------------------------------------------------------------------------
  */
 #countdown {
-    width: 880px;
-    font-size: 45px;
-    font-weight: 300;
-    margin: 20px auto 30px;
+    $cnt-blocks: 4;
+    $cnt-margin: 10px;
+    $cnt-partial: 200px;
+
+    width: ($cnt-partial * $cnt-blocks) + ($cnt-margin * ($cnt-blocks * 2));
+    font-size: 40px;
+    margin: 20px auto 40px;
+    font-family: $font-raleway;
 
     .countdown-partial {
         float: left;
-        width: 200px;
+        color: $gray-light;
         padding: 20px 0;
-        margin: 0 10px;
-        border-radius: 15px;
-        color: #666666;
-        background-color: #f9f9f9;
+        width: $cnt-partial;
+        margin: 0 $cnt-margin;
+        border-radius: 16px;
+        background-color: $gray-lighter;
 
         i {
             display: block;
+            font-size: 110%;
             font-weight: bold;
             font-style: normal;
         }
@@ -189,12 +183,14 @@ footer {
     background-color: #394864;
 
     .social-icon {
-        font-size: 40px;
-    }
-    .social-icon:hover,
-    .social-icon:focus,
-    .social-icon:active {
         color: #fff;
+        font-size: 40px;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            text-decoration: none;
+        }
     }
 }
 
@@ -203,45 +199,4 @@ footer {
  | RESPONSIVE
  |--------------------------------------------------------------------------
  */
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-    #countdown {
-        width: 100%;
-        font-size: 30px;
-        position: relative;
-
-        .countdown-partial {
-            width: 46%;
-            margin: 2%;
-        }
-
-        .countdown-partial:nth-child(2n+1) {
-            clear: left;
-        }
-    }
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px) {
-    .title {
-        font-size: 30px;
-    }
-    .btn-laravel {
-        display: block;
-    }
-}
-
-/* Custom, iPhone Retina */
-@media only screen and (max-width : 320px) {
-
-}
+@import "responsive";
