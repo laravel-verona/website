@@ -13,7 +13,7 @@
         <meta property="og:type" content="website" />
         <meta property="og:title" content="{{ config('lmv.name') }}" />
         <meta property="og:url" content="{{ URL::current() }}" />
-        <meta property="og:description" content="{{ config('lmv.description') }}" />
+        <meta property="og:description" content="{!! config('lmv.description') !!}" />
         <meta property="og:image" content="{{ asset('assets/images/preview.jpg') }}" />
         <meta property="og:image:width" content="750" />
         <meta property="og:image:height" content="389" />
