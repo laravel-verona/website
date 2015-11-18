@@ -16,8 +16,8 @@
                 <li class="{{ $routeName === 'home' ? 'active' : 'inactive' }}">
                     <a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="{{ $routeName === 'notes' ? 'active' : 'inactive' }}">
-                    <a href="{{ route('notes') }}">Notes</a>
+                <li class="{{ starts_with($routeName, 'annotations.') ? 'active' : 'inactive' }}">
+                    <a href="{{ route('annotations.index') }}">Annotations</a>
                 </li>
             </ul>
         </div>

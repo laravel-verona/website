@@ -1,5 +1,7 @@
 <?php
 
+use App\Repository\AnnotationRepository;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,6 +17,15 @@ Route::get('/', ['as' => 'home', function () {
     return view('home');
 }]);
 
-Route::get('notes', ['as' => 'notes', function () {
-    return view('notes');
+Route::get('annotations', ['as' => 'annotations.index', function (AnnotationRepository $annotationRepo) {
+    $readme = $annotationRepo->readme();
+    $annotations = $annotationRepo->all();
+    return view('annotations.index', compact('readme', 'annotations'));
+}]);
+
+Route::get('annotations/show/{name}', ['as' => 'annotations.show', function (AnnotationRepository $annotationRepo, $name) {
+    $annotation = $annotationRepo->find($name);
+    $annotations = $annotationRepo->all();
+
+    return view('annotations.show', compact('name', 'annotation', 'annotations'));
 }]);

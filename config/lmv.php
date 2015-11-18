@@ -27,7 +27,7 @@ return [
     ],
 
     'annotations' => [
-        'path'       => storage_path('clone/annotations'),
+        'path'       => storage_path('app/annotations'),
         'repository' => 'https://github.com/laravel-verona/annotations.git',
     ],
 ];
