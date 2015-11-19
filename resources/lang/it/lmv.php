@@ -9,6 +9,12 @@ return [
         'join'   => 'Partecipa al meetup',
     ],
 
+    'not_found' => [
+        'title'   => 'Pagina non trovata',
+        'code'    => '404',
+        'content' => 'la pagina che stavi cercando non è stata trovata',
+    ],
+
     'home' => [
         'title' => 'Home',
         'descr' => "Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP/Laravel che vogliono partecipare",

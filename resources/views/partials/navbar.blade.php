@@ -1,6 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-lmv">
     <div class="container">
-        @set('routeName', app('router')->current()->getName())
+        @set('current', app('router')->current())
+        @set('routeName', $current ?: false)
 
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -17,6 +18,7 @@
                     <a href="{{ route('home') }}">{{ trans('lmv.home.title') }}</a>
                 </li>
 
+                @if (count($meetupList))
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ trans('lmv.annotations.menu') }} <span class="caret"></span>
@@ -30,6 +32,7 @@
                         @endforeach
                     </ul>
                 </li>
+                @endif
             </ul>
         </div>
     </div>
