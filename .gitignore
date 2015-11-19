@@ -8,3 +8,4 @@ Homestead.json
 Thumbs.db
 composer.phar
 composer.lock
+.php_cs.cache
