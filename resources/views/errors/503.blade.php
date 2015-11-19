@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Be right back.</title>
+@extends('layout')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('page_title', trans('lmv.errors.down.title'))
+@section('page_descr', false)
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('meta')
+<meta name="robots" content="noindex,nofollow">
+@stop
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+@section('content')
+<div id="wrapper" class="text-center">
+    <div id="error" class="container">
+        <div class="title-cont">
+            @include('partials.logo')
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Be right back.</div>
-            </div>
+            <h1 class="title animated slideInUp">{{ trans('lmv.errors.down.title') }}</h1>
+            <h2 class="subtitle animated flipInX">{{ trans('lmv.errors.down.content') }}</h2>
         </div>
-    </body>
-</html>
+    </div>
+</div>
+@stop

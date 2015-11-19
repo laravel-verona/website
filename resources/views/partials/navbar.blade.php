@@ -1,7 +1,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-lmv">
     <div class="container">
         @set('current', app('router')->current())
-        @set('routeName', $current ?: false)
+        @set('routeName', $current ? $current->getName() : false)
+        @set('is_annotation', Request::is('annotations/*'))
 
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -19,14 +20,14 @@
                 </li>
 
                 @if (count($meetupList))
-                <li class="dropdown">
+                <li class="dropdown {{ $is_annotation ? 'active' : 'inactive' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ trans('lmv.annotations.menu') }} <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu">
                         @foreach($meetupList as $meetup)
-                        <li class="text-capitalize">
+                        <li class="text-capitalize {{ ($is_annotation and $current->date == $meetup->date->format('Y-m-d')) ? 'active' : 'inactive' }}">
                             <a href="{{ route('annotations.index', $meetup->path) }}">{{ $meetup->date->format('l j F Y') }}</a>
                         </li>
                         @endforeach

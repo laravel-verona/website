@@ -9,10 +9,16 @@ return [
         'join'   => 'Partecipa al meetup',
     ],
 
-    'not_found' => [
-        'title'   => 'Pagina non trovata',
-        'code'    => '404',
-        'content' => 'la pagina che stavi cercando non è stata trovata',
+    'errors' => [
+        'down' => [
+            'title'   => 'Be right back',
+            'content' => 'il sito è in manutenzione, riprova più tardi',
+        ],
+        'not_found' => [
+            'title'   => 'Pagina non trovata',
+            'code'    => '404',
+            'content' => 'la pagina che stavi cercando non è stata trovata',
+        ],
     ],
 
     'home' => [

@@ -4,8 +4,13 @@
         <meta charset="utf-8">
         <title>@yield('page_title') | {{ trans('lmv.website.title') }}</title>
 
+        @yield('meta')
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        @if ($__env->yieldContent('page_descr'))
         <meta name="description" content="@yield('page_descr')">
+        @endif
+
         <meta name="keywords" content="laravel, php, framework, web, meetup, verona">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +18,11 @@
         <meta property="og:type" content="website" />
         <meta property="og:title" content="@yield('page_title')" />
         <meta property="og:url" content="{{ URL::current() }}" />
+
+        @if ($__env->yieldContent('page_descr'))
         <meta property="og:description" content="@yield('page_descr')" />
+        @endif
+
         <meta property="og:image" content="{{ asset('assets/images/preview.jpg') }}" />
         <meta property="og:image:width" content="750" />
         <meta property="og:image:height" content="389" />
