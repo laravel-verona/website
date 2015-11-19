@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::extend(function ($value, $compiler) {
             $value = preg_replace("/@set\('(.*?)'\,(.*)\)/", '<?php $$1 = $2; ?>', $value);
+
             return $value;
         });
     }

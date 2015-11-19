@@ -43,7 +43,7 @@ class CloneAnnotations extends Command
         if (is_dir($path)) {
             $this->info('Pulling from repository ...');
             exec("cd {$path} && git pull");
-        } else{
+        } else {
             $this->info('Cloning repository ...');
             exec("git clone {$repository} {$path}");
         }
