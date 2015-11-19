@@ -71,7 +71,11 @@ class AnnotationRepository
             $items[] = $this->find($file);
         }
 
-        return collect($items);
+        $items = array_sort($items, function($item) {
+            return ($item->name === 'readme') ? -1 : $item->name;
+        });
+
+        return collect(array_values($items));
     }
 
     /**
