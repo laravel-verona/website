@@ -1,6 +1,6 @@
 <footer>
     <div class="container text-center">
-        &copy {{ date('Y') }} {{ config('lmv.name') }}
+        &copy {{ date('Y') }} {{ trans('lmv.website.title') }}
 
         <br /><br />
 

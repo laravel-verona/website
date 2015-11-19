@@ -9,16 +9,18 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="{{ route('home') }}">{{ config('lmv.name') }}</a>
+            <a class="navbar-brand" href="{{ route('home') }}">{{ trans('lmv.website.title') }}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="{{ $routeName === 'home' ? 'active' : 'inactive' }}">
-                    <a href="{{ route('home') }}">Home</a>
+                    <a href="{{ route('home') }}">{{ trans('lmv.home.title') }}</a>
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Annotations <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        {{ trans('lmv.annotations.menu') }} <span class="caret"></span>
+                    </a>
 
                     <ul class="dropdown-menu">
                         @foreach($meetupList as $meetup)

@@ -1,11 +1,14 @@
 @extends('layout')
 
+@section('page_title', trans('lmv.annotations.title', ['date' => $meetup->date->format('d-m-Y')]))
+@section('page_descr', trans('lmv.annotations.descr', ['date' => $meetup->date->format('d-m-Y')]))
+
 @section('content')
 <header class="header header-small text-center">
     <div class="overlay"></div>
 
     <div class="title-cont">
-        <h1 class="title animated slideInUp">MEETUP</h1>
+        <h1 class="title animated slideInUp">{{ trans('lmv.website.meetup') }}</h1>
         <h2 class="subtitle animated flipInX">{{ $meetup->date->format('l j F Y') }}</h2>
     </div>
 </header>

@@ -1,5 +1,8 @@
 @extends('layout')
 
+@section('page_title', trans('lmv.home.title'))
+@section('page_descr', trans('lmv.home.descr'))
+
 @section('content')
 <header class="header text-center">
     <div class="overlay"></div>
@@ -36,14 +39,16 @@
                     <div id="countdown-seconds" class="countdown-partial"></div>
                 </div>
 
-                <a class="btn btn-lg btn-lmv" target="_blank" href="{{ config('lmv.social.meetup') }}">PARTECIPA AL MEETUP</a>
+                <a class="btn btn-lg btn-lmv text-uppercase" target="_blank" href="{{ config('lmv.social.meetup') }}">
+                    {{ trans('lmv.website.join') }}
+                </a>
 
                 @set('map_embed', config('lmv.event.venue.map_embed'))
 
                 @if ($map_embed)
                 <div id="map_cont" class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1>Ti aspettiamo qui</h1>
+                        <h1>{{ trans('lmv.website.venue') }}</h1>
 
                         <div id="map_embed" class="embed-responsive embed-responsive-16by9">
                             <iframe id="map_canvas" src="{{ $map_embed }}" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -58,15 +63,15 @@
 @stop
 
 @section('scripts')
-    <script type="text/javascript">
+<script>
+    $('#map_canvas').addClass('scroll-off');
+
+    $('#map_embed').on('click', function () {
+        $('#map_canvas').removeClass('scroll-off');
+    });
+
+    $("#map_canvas").mouseleave(function () {
         $('#map_canvas').addClass('scroll-off');
-
-        $('#map_embed').on('click', function () {
-            $('#map_canvas').removeClass('scroll-off');
-        });
-
-        $("#map_canvas").mouseleave(function () {
-            $('#map_canvas').addClass('scroll-off');
-        });
-    </script>
+    });
+</script>
 @stop
