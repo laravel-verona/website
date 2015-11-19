@@ -11,6 +11,7 @@
 $font-raleway: 'Raleway', sans-serif;
 $images-path: '/assets/images';
 $laravel-color: #e74430;
+$gray-lmv: #cccccc;
 
 /*
  |--------------------------------------------------------------------------
@@ -214,6 +215,39 @@ footer {
 }
 #map_cont {
     margin-top: 60px;
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | ANNOTATIONS
+ |--------------------------------------------------------------------------
+ */
+.annotation-cont {
+    .nav-tabs a {
+        color: $laravel-color;
+        font-size: 16px;
+    }
+
+    .tab-pane {
+        h1:first-of-type {
+            margin: 40px 0;
+            font-weight: bold;
+        }
+        h2 {
+            color: $laravel-color;
+            padding: 10px 0;
+            border-bottom: 1px dashed $gray-lmv;
+        }
+        img {
+            @extends .img-responsive;
+            margin: auto;
+        }
+        table {
+            @extend .table;
+            @extend .table-striped;
+            @extend .table-bordered;
+        }
+    }
 }
 
 /*

@@ -11,7 +11,7 @@
 </header>
 
 <div id="wrapper">
-    <div class="container">
+    <div class="container annotation-cont">
         <ul class="nav nav-tabs nav-justified" role="tablist">
             @foreach($files as $index => $file)
             <li role="presentation" class="{{ $index === 0 ? 'active' : 'inactive' }}">
@@ -29,4 +29,12 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('scripts')
+<script>
+$(function() {
+    $('.tab-pane table').wrap('<div class="table-responsive"></div>');
+})
+</script>
 @stop
