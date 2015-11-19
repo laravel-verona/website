@@ -2,57 +2,124 @@
 
 namespace App\Repository;
 
-use Date;
+use App\Entity\Meetup;
 use App\Entity\Annotation;
-use League\CommonMark\CommonMarkConverter;
-use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Contracts\Filesystem\FileSystem;
 
-class AnnotationRepository {
+class AnnotationRepository
+{
+    /**
+     * Percorso del repository Annotations.
+     *
+     * @var string
+     */
+    protected $path;
 
-    protected $folder;
-    protected $markdown;
+    /**
+     * Istanza FileSystem.
+     *
+     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     */
     protected $filesystem;
 
-    public function __construct(CommonMarkConverter $markdown, Filesystem $filesystem)
+    public function __construct(FileSystem $filesystem)
     {
-        $this->folder = basename(config('lmv.annotations.path'));
-        $this->markdown = $markdown;
+        $this->path = config('lmv.annotations.path');
         $this->filesystem = $filesystem;
+
+        // Imposto come root la directory con il clone del repository
+        $this->filesystem->getAdapter()->setPathPrefix($this->path);
     }
 
-    public function readme()
+    /**
+     * Trova un appunto.
+     *
+     * @param  string $path
+     * @return \App\Entity\Annotation
+     */
+    public function find($path)
     {
-        if ( ! $this->filesystem->exists("{$this->folder}/readme.md")) {
-            return false;
+        $path .= ends_with($path, '.md') ? '' : '.md';
+
+        return new Annotation($this->filesystem, $path);
+    }
+
+    /**
+     * Trova un appunto attraverso il Meetup ed il nome file.
+     *
+     * @param  \App\Entity\Meetup $meetup
+     * @param  string $name
+     * @return \App\Entity\Annotation
+     */
+    public function findByMeetup(Meetup $meetup, $name)
+    {
+        return $this->find("{$meetup->path}/{$name}");
+    }
+
+    /**
+     * Ottieni l'elenco degli appunti.
+     *
+     * @param  string $path Percorso Meetup
+     * @return \Illuminate\Support\Collection
+     */
+    public function get($path)
+    {
+        $items = [];
+        $files = $this->filesystem->files($path);
+
+        foreach ($files as $file) {
+            $items[] = $this->find($file);
         }
 
-        return $this->find('readme');
+        return collect($items);
     }
 
-    public function all()
+    /**
+     * Trova un Meetup.
+     *
+     * @param  string $path
+     * @return \App\Entity\Meetup
+     */
+    public function findMeetup($path)
     {
-        $files = [];
+        return new Meetup($this->filesystem, $path);
+    }
 
-        foreach ($this->filesystem->files($this->folder) as $path) {
-            $name = substr(strtolower(basename($path)), 0, -3);
+    /**
+     * Ottieni l'elenco dei Meetup.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getMeetup()
+    {
+        $items = [];
+        $exclude = ['.git'];
+        $folders = collect($this->filesystem->directories())->diff($exclude);
 
-            if (ends_with($path, '.md') and $name !== 'readme') {
-                $files[$name] = $this->find($name);
-            }
+        foreach ($folders as $folder) {
+            $items[] = $this->findMeetup($folder);
         }
 
-        return $files;
+        return collect($items);
     }
 
-    public function find($name) {
-        // Verifica formato data
-        $date = (date_parse($name)['error_count'] === 0) ? Date::createFromFormat('Y-m-d', $name) : false;
-
-        // Conversione MARKDOWN => HTML
-        $markdown = $this->filesystem->read("{$this->folder}/{$name}.md");
-        $html = $this->markdown->convertToHtml($markdown);
-
-        return new Annotation(compact('name', 'date', 'html', 'markdown'));
+    /**
+     * Ottieni il percorso del repository Annotations.
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 
+    /**
+     * Ottieni istanza FileSystem.
+     *
+     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     */
+    public function getFilesystem()
+    {
+        return $this->filesystem;
+    }
 }
