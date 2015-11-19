@@ -16,8 +16,17 @@
                 <li class="{{ $routeName === 'home' ? 'active' : 'inactive' }}">
                     <a href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="{{ starts_with($routeName, 'annotations.') ? 'active' : 'inactive' }}">
-                    <a href="{{ route('annotations.index') }}">Annotations</a>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Annotations <span class="caret"></span></a>
+
+                    <ul class="dropdown-menu">
+                        @foreach($meetupList as $meetup)
+                        <li class="text-capitalize">
+                            <a href="{{ route('annotations.index', $meetup->path) }}">{{ $meetup->date->format('l j F Y') }}</a>
+                        </li>
+                        @endforeach
+                    </ul>
                 </li>
             </ul>
         </div>
