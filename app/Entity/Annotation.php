@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use Date;
+use League\CommonMark\Converter;
+use League\CommonMark\DocParser;
+use League\CommonMark\Environment;
+use League\CommonMark\HtmlRenderer;
 use Illuminate\Support\Collection;
-use League\CommonMark\CommonMarkConverter;
 use Illuminate\Contracts\Filesystem\FileSystem;
+use Webuni\CommonMark\TableExtension\TableExtension;
 
 class Annotation extends Collection
 {
@@ -28,7 +32,7 @@ class Annotation extends Collection
         parent::__construct(compact('path'));
 
         $this->filesystem = $filesystem;
-        $this->commonmark = new CommonMarkConverter;
+        $this->commonmark = $this->getCommonMark();
 
         $this->items = $this->items + [
             'name'    => $this->getName(),
@@ -82,6 +86,19 @@ class Annotation extends Collection
     public function getHtml()
     {
         return $this->commonmark->convertToHtml($this->getContent());
+    }
+
+    /**
+     * Ottieni istanza CommonMark
+     *
+     * @return \League\CommonMark\Converter
+     */
+    public function getCommonMark()
+    {
+        $environment = Environment::createCommonMarkEnvironment();
+        $environment->addExtension(new TableExtension());
+
+        return new Converter(new DocParser($environment), new HtmlRenderer($environment));
     }
 
     /**

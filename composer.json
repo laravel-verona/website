@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "jenssegers/date": "^3.0",
-        "league/commonmark": "^0.12"
+        "league/commonmark": "^0.12",
+        "webuni/commonmark-table-extension": "^0.4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
