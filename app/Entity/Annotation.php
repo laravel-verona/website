@@ -89,7 +89,7 @@ class Annotation extends Collection
     }
 
     /**
-     * Ottieni istanza CommonMark
+     * Ottieni istanza CommonMark.
      *
      * @return \League\CommonMark\Converter
      */
