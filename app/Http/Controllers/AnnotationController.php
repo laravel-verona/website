@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Repository\AnnotationRepository;
+use App\Exceptions\MeetupNotFoundException;
+use App\Exceptions\AnnotationNotFoundException;
 
 class AnnotationController extends Controller
 {
@@ -22,8 +24,14 @@ class AnnotationController extends Controller
      */
     public function index($date)
     {
-        $meetup = $this->annotationRepo->findMeetup($date);
-        $files = $this->annotationRepo->get($meetup->path);
+        try {
+            $meetup = $this->annotationRepo->findMeetup($date);
+            $files = $this->annotationRepo->get($meetup->path);
+        } catch (MeetupNotFoundException $e) {
+            abort(404);
+        } catch (AnnotationNotFoundException $e) {
+            abort(404);
+        }
 
         return view('annotations.index', compact('meetup', 'files'));
     }

@@ -4,6 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Meetup;
 use App\Entity\Annotation;
+use App\Exceptions\MeetupNotFoundException;
+use App\Exceptions\AnnotationNotFoundException;
 use Illuminate\Contracts\Filesystem\FileSystem;
 
 class AnnotationRepository
@@ -40,6 +42,10 @@ class AnnotationRepository
     public function find($path)
     {
         $path .= ends_with($path, '.md') ? '' : '.md';
+
+        if (! $this->filesystem->exists($path)) {
+            throw new AnnotationNotFoundException;
+        }
 
         return new Annotation($this->filesystem, $path);
     }
@@ -86,6 +92,10 @@ class AnnotationRepository
      */
     public function findMeetup($path)
     {
+        if (! $this->filesystem->exists($path)) {
+            throw new MeetupNotFoundException;
+        }
+
         return new Meetup($this->filesystem, $path);
     }
 
