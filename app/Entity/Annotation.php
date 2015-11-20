@@ -8,7 +8,7 @@ use League\CommonMark\DocParser;
 use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
 use Illuminate\Support\Collection;
-use Illuminate\Contracts\Filesystem\FileSystem;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Webuni\CommonMark\TableExtension\TableExtension;
 
 class Annotation extends Collection
@@ -21,13 +21,13 @@ class Annotation extends Collection
     protected $commonmark;
 
     /**
-     * Istanza FileSystem.
+     * Istanza Filesystem.
      *
-     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     protected $filesystem;
 
-    public function __construct(FileSystem $filesystem, $path)
+    public function __construct(Filesystem $filesystem, $path)
     {
         parent::__construct(compact('path'));
 

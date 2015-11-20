@@ -6,7 +6,7 @@ use App\Entity\Meetup;
 use App\Entity\Annotation;
 use App\Exceptions\MeetupNotFoundException;
 use App\Exceptions\AnnotationNotFoundException;
-use Illuminate\Contracts\Filesystem\FileSystem;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 class AnnotationRepository
 {
@@ -18,13 +18,13 @@ class AnnotationRepository
     protected $path;
 
     /**
-     * Istanza FileSystem.
+     * Istanza Filesystem.
      *
-     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     protected $filesystem;
 
-    public function __construct(FileSystem $filesystem)
+    public function __construct(Filesystem $filesystem)
     {
         $this->path = config('lmv.annotations.path');
         $this->filesystem = $filesystem;
@@ -151,9 +151,9 @@ class AnnotationRepository
     }
 
     /**
-     * Ottieni istanza FileSystem.
+     * Ottieni istanza Filesystem.
      *
-     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     public function getFilesystem()
     {

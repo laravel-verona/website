@@ -4,18 +4,18 @@ namespace App\Entity;
 
 use Date;
 use Illuminate\Support\Collection;
-use Illuminate\Contracts\Filesystem\FileSystem;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 class Meetup extends Collection
 {
     /**
-     * Istanza FileSystem.
+     * Istanza Filesystem.
      *
-     * @var \Illuminate\Contracts\Filesystem\FileSystem
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
      */
     protected $filesystem;
 
-    public function __construct(FileSystem $filesystem, $path)
+    public function __construct(Filesystem $filesystem, $path)
     {
         parent::__construct(compact('path'));
 
