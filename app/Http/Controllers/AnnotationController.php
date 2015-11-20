@@ -8,25 +8,16 @@ use App\Exceptions\AnnotationNotFoundException;
 
 class AnnotationController extends Controller
 {
-    protected $annotationRepo;
-
-    public function __construct(AnnotationRepository $annotationRepo)
-    {
-        parent::__construct();
-
-        $this->annotationRepo = $annotationRepo;
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($date)
+    public function index($date, AnnotationRepository $annotationRepo)
     {
         try {
-            $meetup = $this->annotationRepo->findMeetup($date);
-            $files = $this->annotationRepo->get($meetup->path);
+            $meetup = $annotationRepo->findMeetup($date);
+            $files = $annotationRepo->get($meetup->path);
         } catch (MeetupNotFoundException $e) {
             abort(404);
         } catch (AnnotationNotFoundException $e) {
