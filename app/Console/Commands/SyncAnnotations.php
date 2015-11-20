@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class CloneAnnotations extends Command
+class SyncAnnotations extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'lmv:clone';
+    protected $signature = 'lmv:sync';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Clone Annotations Repository locally';
+    protected $description = 'Sync Annotations Repository locally';
 
     /**
      * Create a new command instance.
