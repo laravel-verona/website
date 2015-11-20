@@ -118,6 +118,29 @@ class AnnotationRepository
     }
 
     /**
+     * Ottieni l'elenco dei Meetup con i relativi Appunti innestati
+     * per il menu di navigazione.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function getMeetupNavigation()
+    {
+        $me = app(static::class);
+
+        // Elenco Meetup + Appunti
+        $meetupNav = $this->getMeetup()->each(function ($meetup) use ($me) {
+            return $meetup->put('annotations', $me->get($meetup->path));
+        });
+
+        // Il Meetup più recente all'inizio
+        $meetupNav = $meetupNav->sortByDesc(function ($meetup) {
+            return $meetup->date;
+        });
+
+        return $meetupNav;
+    }
+
+    /**
      * Ottieni il percorso del repository Annotations.
      *
      * @return string

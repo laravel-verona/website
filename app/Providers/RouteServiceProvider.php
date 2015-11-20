@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Routing\Router;
-use App\Repository\AnnotationRepository;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -25,19 +24,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
-        // Elenco Meetup + Annotations
-        $annotationRepo = app(AnnotationRepository::class);
-
-        $this->meetupList = $annotationRepo->getMeetup()->each(function ($meetup) use ($annotationRepo) {
-            return $meetup->put('annotations', $annotationRepo->get($meetup->path));
-        });
-
-        // Il Meetup più recente all'inizio
-        $this->meetupList = $this->meetupList->sortByDesc(function ($meetup) {
-            return $meetup->date;
-        });
-
-        view()->share('meetupList', $this->meetupList);
+        //
 
         parent::boot($router);
     }
