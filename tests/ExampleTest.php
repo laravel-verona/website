@@ -10,7 +10,6 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-             ->see(config('lmv.name'));
+        $this->visit('/')->see(trans('lmv.website.title'));
     }
 }

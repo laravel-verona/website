@@ -21,13 +21,18 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="info col-md-8 col-md-offset-2">
-                        <h1>Unisciti a noi !</h1>
+                        <h1>{{ trans('lmv.website.join_us') }}</h1>
 
-                        <p>Il Laravel Meetup Verona è un'occasione di incontro e discussione per tutti gli sviluppatori o appassionati di PHP e Laravel che vogliono partecipare.</p>
-                        <p>L'idea è di incontrarci, conoscerci, fare amicizia e scambiare informazioni, problematiche, condividere soluzioni e strumenti di sviluppo basandoci sulle nostre esperienze. Non importa quale sia il tuo livello di conoscenza di PHP o Laravel, sarai il benvenuto!</p>
+                        <p>{{ trans('lmv.home.content_1') }}</p>
+                        <p>{{ trans('lmv.home.content_2') }}</p>
 
                         <h3 class="event-reminder">
-                            Ti aspettiamo {{ config('lmv.event.start')->format('l j F') }}, dalle {{ config('lmv.event.start')->format('H:i') }} alle {{ config('lmv.event.end')->format('H:i') }}, al {{ config('lmv.event.name') }}
+                            {{ trans('lmv.home.reminder', [
+                                'name'       => config('lmv.event.name'),
+                                'date'       => config('lmv.event.start')->format('l j F'),
+                                'end_hour'   => config('lmv.event.end')->format('H:i'),
+                                'start_hour' => config('lmv.event.start')->format('H:i'),
+                            ]) }}
                         </h3>
                     </div>
                 </div>
@@ -40,7 +45,7 @@
                 </div>
 
                 <a class="btn btn-lg btn-lmv text-uppercase" target="_blank" href="{{ config('lmv.social.meetup') }}">
-                    {{ trans('lmv.website.join') }}
+                    {{ trans('lmv.website.join_meetup') }}
                 </a>
 
                 @set('map_embed', config('lmv.event.venue.map_embed'))
@@ -60,18 +65,4 @@
         </div>
     </div>
 </div>
-@stop
-
-@section('scripts')
-<script>
-    $('#map_canvas').addClass('scroll-off');
-
-    $('#map_embed').on('click', function () {
-        $('#map_canvas').removeClass('scroll-off');
-    });
-
-    $("#map_canvas").mouseleave(function () {
-        $('#map_canvas').addClass('scroll-off');
-    });
-</script>
 @stop
