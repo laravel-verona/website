@@ -2,7 +2,7 @@
 
 @set('router', Route::current())
 @set('routeName', $router ? $router->getName() : false)
-@set('meetupNav', $annotationRepo->getMeetupNavigation());
+@set('meetupNav', $annotationRepo->getMeetupNavigation())
 @set('isAnnotation', Request::is('annotations/*'))
 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-lmv">
