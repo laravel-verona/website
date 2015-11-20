@@ -33,5 +33,5 @@ elixir(function(mix) {
             'public/assets/css/all.css',
             'public/assets/js/all.js'
         ])
-        .copy('resources/assets/images/', 'public/assets/images/');
+        .copy('resources/assets/images/', 'public/build/assets/images/');
 });
