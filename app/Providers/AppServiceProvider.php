@@ -27,6 +27,11 @@ class AppServiceProvider extends ServiceProvider
         $this->registerBladeExtensions();
     }
 
+    /**
+     * Estensioni per i templates in Blade.
+     *
+     * @return void
+     */
     protected function registerBladeExtensions()
     {
         Blade::extend(function ($value, $compiler) {
