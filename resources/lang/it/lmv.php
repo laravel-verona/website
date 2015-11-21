@@ -37,6 +37,7 @@ return [
         'sing'        => 'annotation',
         'plur'        => 'annotations',
         'choice'      => 'annotation|annotations',
+        'empty'       => 'Ancora nessun appunto per questo Meetup',
         'last_update' => 'Ultimo aggiornamento:',
     ],
 

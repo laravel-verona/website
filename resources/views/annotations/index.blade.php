@@ -15,27 +15,33 @@
 
 <div id="wrapper">
     <div class="container annotation-cont">
-        <ul class="nav nav-tabs nav-justified" role="tablist">
-            @foreach($files as $index => $file)
-            <li role="presentation" class="{{ $index === 0 ? 'active' : 'inactive' }}">
-                <a href="#{{ $file->name }}" class="text-uppercase" role="tab" data-toggle="tab">{{ $file->name }}</a>
-            </li>
-            @endforeach
-        </ul>
+        @if (count($files) > 0)
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                @foreach($files as $index => $file)
+                <li role="presentation" class="{{ $index === 0 ? 'active' : 'inactive' }}">
+                    <a href="#{{ $file->name }}" class="text-uppercase" role="tab" data-toggle="tab">{{ $file->name }}</a>
+                </li>
+                @endforeach
+            </ul>
 
-        <div class="tab-content">
-            @foreach($files as $index => $file)
-            <div role="tabpanel" id="{{ $file->name }}" class="tab-pane {{ $index === 0 ? 'active' : 'inactive' }}">
-                {!! $file->html !!}
+            <div class="tab-content">
+                @foreach($files as $index => $file)
+                <div role="tabpanel" id="{{ $file->name }}" class="tab-pane {{ $index === 0 ? 'active' : 'inactive' }}">
+                    {!! $file->html !!}
 
-                @if ($file->commit)
-                <div class="commit-info text-muted">
-                    {{ trans('lmv.annotations.last_update') }} <a href="{{ $file->commit->url }}" target="_blank" rel="nofollow">{{ $file->commit->date->format('l j F Y H:i') }}</a>
+                    @if ($file->commit)
+                    <div class="commit-info text-muted">
+                        {{ trans('lmv.annotations.last_update') }} <a href="{{ $file->commit->url }}" target="_blank" rel="nofollow">{{ $file->commit->date->format('l j F Y H:i') }}</a>
+                    </div>
+                    @endif
                 </div>
-                @endif
+                @endforeach
             </div>
-            @endforeach
-        </div>
+        @else
+            <h3 class="annotations-empty text-muted text-center">
+                <i class="fa fa-calendar-times-o"></i> {{ trans('lmv.annotations.empty') }}
+            </h3>
+        @endif
     </div>
 </div>
 @stop

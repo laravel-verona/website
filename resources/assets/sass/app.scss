@@ -12,7 +12,7 @@ $font-raleway: 'Raleway', sans-serif;
 $images-path: '/build/assets/images';
 $footer-height: 160px;
 $laravel-color: #e74430;
-$gray-lmv: #cccccc;
+$gray-lmv: #ccc;
 
 /*
  |--------------------------------------------------------------------------
@@ -283,6 +283,17 @@ footer {
         }
         table:last-of-type {
             margin-bottom: 0;
+        }
+    }
+
+    .annotations-empty {
+        margin-top: 20px;
+
+        i {
+            color: $gray-lmv;
+            display: block;
+            font-size: 160px;
+            margin-bottom: 30px;
         }
     }
 
