@@ -51,7 +51,7 @@ class Annotation extends Collection
     public function getCommitInfo()
     {
         $prefix = $this->filesystem->getAdapter()->getPathPrefix();
-        $command = 'cd '.$prefix.' && git log -n 1 --pretty=format:\'{"hash": "%H", "author": "%an", "date": "%aI", "message": "%f"}\' '.$this->path;
+        $command = 'cd '.$prefix.' && git log -n 1 --pretty=format:\'{"hash": "%H", "author": "%an", "date": "%ai", "message": "%f"}\' '.$this->path;
         $rawOutput = exec($command);
         $commitInfo = json_decode($rawOutput);
 
