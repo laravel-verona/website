@@ -39,7 +39,30 @@ class Annotation extends Collection
             'date'    => $this->getDate(),
             'html'    => $this->getHtml(),
             'content' => $this->getContent(),
+            'commit'  => $this->getCommitInfo(),
         ];
+    }
+
+    /**
+     * Ottieni le informazioni relative all'ultimo commit.
+     *
+     * @return string|bool
+     */
+    public function getCommitInfo()
+    {
+        $prefix = $this->filesystem->getAdapter()->getPathPrefix();
+        $command = 'cd '.$prefix.' && git log -n 1 --pretty=format:\'{"hash": "%H", "author": "%an", "date": "%aI", "message": "%f"}\' '.$this->path;
+        $rawOutput = exec($command);
+        $commitInfo = json_decode($rawOutput);
+
+        if (json_last_error() == JSON_ERROR_NONE) {
+            $commitInfo->date = Date::createFromFormat(Date::ISO8601, $commitInfo->date);
+            $commitInfo->url = config('lmv.annotations.commit')."/{$commitInfo->hash}";
+
+            return $commitInfo;
+        }
+
+        return false;
     }
 
     /**

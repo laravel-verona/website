@@ -25,6 +25,7 @@ return [
     'annotations' => [
         'path'       => storage_path('app/annotations'),
         'blob'       => 'https://github.com/laravel-verona/annotations/blob/master',
+        'commit'     => 'https://github.com/laravel-verona/annotations/commit',
         'repository' => 'https://github.com/laravel-verona/annotations.git',
     ],
 ];
