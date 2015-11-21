@@ -46,7 +46,7 @@ class Annotation extends Collection
     /**
      * Ottieni le informazioni relative all'ultimo commit.
      *
-     * @return string|bool
+     * @return object|bool
      */
     public function getCommitInfo()
     {
