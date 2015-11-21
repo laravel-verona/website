@@ -56,7 +56,7 @@ class Annotation extends Collection
         $commitInfo = json_decode($rawOutput);
 
         if (json_last_error() == JSON_ERROR_NONE) {
-            $commitInfo->date = Date::createFromFormat(Date::ISO8601, $commitInfo->date);
+            $commitInfo->date = Date::parse($commitInfo->date);
             $commitInfo->url = config('lmv.annotations.commit')."/{$commitInfo->hash}";
 
             return $commitInfo;
