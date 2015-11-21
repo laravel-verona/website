@@ -12,10 +12,6 @@
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
-Route::get('annotations/update',function()
-{
-    Artisan::queue('lmv:clone');
-    return redirect('/');
-});
-Route::get('annotations/{date}', ['as' => 'annotations.index', 'uses' => 'AnnotationController@index']);
 
+Route::post('annotations/sync',  ['as' => 'annotations.sync',  'uses' => 'AnnotationController@sync']);
+Route::get('annotations/{date}', ['as' => 'annotations.index', 'uses' => 'AnnotationController@index']);
