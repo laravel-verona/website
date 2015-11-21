@@ -108,36 +108,15 @@ class AnnotationRepository
     {
         $items = [];
         $exclude = ['.git'];
-        $folders = collect($this->filesystem->directories())->diff($exclude);
+        $folders = collect($this->filesystem->directories())->diff($exclude)->sortByDesc(function ($name) {
+            return $name;
+        });
 
         foreach ($folders as $folder) {
             $items[] = $this->findMeetup($folder);
         }
 
         return collect($items);
-    }
-
-    /**
-     * Ottieni l'elenco dei Meetup con i relativi Appunti innestati
-     * per il menu di navigazione.
-     *
-     * @return \Illuminate\Support\Collection
-     */
-    public function getMeetupNavigation()
-    {
-        $me = app(static::class);
-
-        // Elenco Meetup + Appunti
-        $meetupNav = $this->getMeetup()->each(function ($meetup) use ($me) {
-            return $meetup->put('annotations', $me->get($meetup->path));
-        });
-
-        // Il Meetup più recente all'inizio
-        $meetupNav = $meetupNav->sortByDesc(function ($meetup) {
-            return $meetup->date;
-        });
-
-        return $meetupNav;
     }
 
     /**
