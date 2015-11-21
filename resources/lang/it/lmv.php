@@ -31,12 +31,13 @@ return [
     ],
 
     'annotations' => [
-        'menu'   => 'Annotations',
-        'title'  => 'Annotations &middot; :date',
-        'descr'  => "Appunti relativi al Meetup del :date",
-        'sing'   => 'annotation',
-        'plur'   => 'annotations',
-        'choice' => 'annotation|annotations',
+        'menu'        => 'Annotations',
+        'title'       => 'Annotations &middot; :date',
+        'descr'       => "Appunti relativi al Meetup del :date",
+        'sing'        => 'annotation',
+        'plur'        => 'annotations',
+        'choice'      => 'annotation|annotations',
+        'last_update' => 'Ultimo aggiornamento:',
     ],
 
 ];

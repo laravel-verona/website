@@ -281,6 +281,17 @@ footer {
             @extend .table-striped;
             @extend .table-bordered;
         }
+        table:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .commit-info {
+        font-size: 90%;
+        margin-top: 30px;
+        padding: 5px 10px;
+        background-color: $table-bg-accent;
+        border-radius: $border-radius-small;
     }
 }
 

@@ -27,6 +27,12 @@
             @foreach($files as $index => $file)
             <div role="tabpanel" id="{{ $file->name }}" class="tab-pane {{ $index === 0 ? 'active' : 'inactive' }}">
                 {!! $file->html !!}
+
+                @if ($file->commit)
+                <div class="commit-info text-muted">
+                    {{ trans('lmv.annotations.last_update') }} <a href="{{ $file->commit->url }}" target="_blank" rel="nofollow">{{ $file->commit->date->format('l j F Y H:i') }}</a>
+                </div>
+                @endif
             </div>
             @endforeach
         </div>
