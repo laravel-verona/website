@@ -5,7 +5,7 @@
 
 @section('meta')
 <meta name="robots" content="noindex,nofollow">
-@stop
+@endsection
 
 @section('content')
 <div id="wrapper" class="text-center">
@@ -18,4 +18,4 @@
         </div>
     </div>
 </div>
-@stop
+@endsection

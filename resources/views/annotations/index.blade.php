@@ -44,7 +44,7 @@
         @endif
     </div>
 </div>
-@stop
+@endsection
 
 @section('scripts')
 <script>
@@ -62,4 +62,4 @@ $(function() {
     });
 })
 </script>
-@stop
+@endsection
