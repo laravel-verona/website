@@ -8,6 +8,6 @@
     "bootstrap-sass": "^3.3.5",
     "jquery": "^2.1.4",
     "jquery-countdown": "^2.0.5",
-    "laravel-elixir": "^3.0.0"
+    "laravel-elixir": "^4.0.0"
   }
 }
