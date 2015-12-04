@@ -14,6 +14,11 @@
         <meta name="keywords" content="laravel, php, framework, web, meetup, verona">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Favicon -->
+        <link rel="icon" sizes="16x16 32x32 48x48 64x64" href="{{ asset('build/assets/images/favicon/favicon.ico?v=1') }}">
+        <link rel="shortcut icon" href="{{ asset('build/assets/images/favicon/favicon.ico?v=1') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('build/assets/images/favicon/apple-touch-icon-152x152.png?v=1') }}">
+
         <!-- Open Graph -->
         <meta property="og:type" content="website" />
         <meta property="og:title" content="@yield('page_title')" />
