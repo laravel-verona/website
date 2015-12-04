@@ -11,13 +11,6 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 class AnnotationRepository
 {
     /**
-     * Percorso del repository Annotations.
-     *
-     * @var string
-     */
-    protected $path;
-
-    /**
      * Istanza Filesystem.
      *
      * @var \Illuminate\Contracts\Filesystem\Filesystem
@@ -26,11 +19,10 @@ class AnnotationRepository
 
     public function __construct(Filesystem $filesystem)
     {
-        $this->path = config('lmv.annotations.path');
         $this->filesystem = $filesystem;
 
         // Imposto come root la directory con il clone del repository
-        $this->filesystem->getAdapter()->setPathPrefix($this->path);
+        $this->setPath(config('lmv.annotations.path'));
     }
 
     /**
@@ -126,7 +118,21 @@ class AnnotationRepository
      */
     public function getPath()
     {
-        return $this->path;
+        $path = $this->filesystem->getAdapter()->getPathPrefix();
+
+        return rtrim($path, '/');
+    }
+
+    /**
+     * Imposta il percorso del repository Annotations.
+     *
+     * @return string
+     */
+    public function setPath($path)
+    {
+        $this->filesystem->getAdapter()->setPathPrefix($path);
+
+        return $this;
     }
 
     /**

@@ -55,7 +55,7 @@ class Annotation extends Collection
         $rawOutput = exec($command);
         $commitInfo = json_decode($rawOutput);
 
-        if (json_last_error() == JSON_ERROR_NONE) {
+        if ($commitInfo and json_last_error() == JSON_ERROR_NONE) {
             $commitInfo->date = Date::parse($commitInfo->date);
             $commitInfo->url = config('lmv.annotations.commit')."/{$commitInfo->hash}";
 
