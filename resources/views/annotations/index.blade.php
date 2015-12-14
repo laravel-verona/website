@@ -54,7 +54,7 @@ $(function() {
     var blob = "{{ config('lmv.annotations.blob').'/'.$meetup->date->format('Y-m-d') }}";
 
     // I links al repository "Annotations" devono mostrare i tab-pane
-    $('.tab-pane a[href^="' + blob +'"]').on('click', function(e) {
+    $('.tab-pane a[href^="' + blob +'"][href$=".md"]').on('click', function(e) {
         e.preventDefault();
 
         var panel_id = $(this).attr('href').replace(blob + '/', '#').replace('.md', '');
