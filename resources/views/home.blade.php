@@ -44,9 +44,13 @@
                     <div id="countdown-seconds" class="countdown-partial"></div>
                 </div>
 
-                <a class="btn btn-lg btn-lmv text-uppercase" target="_blank" href="{{ config('lmv.social.meetup') }}">
+                @set('event_url', config('lmv.event.url'))
+
+                @if ($event_url)
+                <a class="btn btn-lg btn-lmv text-uppercase" target="_blank" href="{{ $event_url }}">
                     {{ trans('lmv.website.join_meetup') }}
                 </a>
+                @endif
 
                 @set('map_embed', config('lmv.event.venue.map_embed'))
 
