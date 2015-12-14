@@ -1,6 +1,6 @@
 <footer>
     <div class="container text-center">
-        &copy; {{ date('Y') }} {{ trans('lmv.website.title') }}
+        Laravel is a trademark of Taylor Otwell. Copyright &copy; {{ date('Y') }} {{ trans('lmv.website.title') }}
 
         <br /><br />
 
