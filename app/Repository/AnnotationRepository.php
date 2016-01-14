@@ -63,7 +63,7 @@ class AnnotationRepository
     public function get($path)
     {
         $items = [];
-        $files = array_where($this->filesystem->listContents($path), function($index, $item) {
+        $files = array_where($this->filesystem->listContents($path), function ($index, $item) {
             return ($item['type'] === 'file' and $item['extension'] === 'md');
         });
 
