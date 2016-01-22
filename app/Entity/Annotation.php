@@ -112,6 +112,31 @@ class Annotation extends Collection
     }
 
     /**
+     * Ottieni l'elenco degli Headings presenti nel file markdown
+     *
+     * @param  integer $importance
+     * @return array
+     */
+    public function getHeadings($importance = 1)
+    {
+        $pattern = "/(#{{$importance}}+)(.*)/";
+        $headings = [];
+
+        preg_match_all($pattern, $this->getContent(), $matches);
+
+        foreach ($matches[2] as $item) {
+            $item = trim(trim($item, '#'));
+            $anchor = str_replace(' ', '_', $item);
+            $anchor = str_replace('&', 'and', $anchor);
+            $anchor = strtolower($anchor);
+
+            $headings[$anchor] = $item;
+        }
+
+        return $headings;
+    }
+
+    /**
      * Ottieni istanza CommonMark.
      *
      * @return \League\CommonMark\Converter

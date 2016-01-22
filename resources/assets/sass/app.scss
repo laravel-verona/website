@@ -262,28 +262,44 @@ footer {
         font-size: 16px;
     }
 
-    .tab-pane {
-        h1:first-of-type {
-            margin: 40px 0;
-            font-weight: bold;
+    .annotation-menu {
+        color: $gray-lmv;
+
+        li:hover {
+            background-color: #f9f9f9;
         }
-        h2 {
+        a {
+            width: 100%;
+            display: inline-block;
+            padding: 5px 4px;
             color: $laravel-color;
-            padding: 10px 0;
-            border-bottom: 1px dashed $gray-lmv;
+
+            &:hover {
+                text-decoration: none;
+            }
         }
-        img {
-            @extends .img-responsive;
-            margin: auto;
-        }
-        table {
-            @extend .table;
-            @extend .table-striped;
-            @extend .table-bordered;
-        }
-        table:last-of-type {
-            margin-bottom: 0;
-        }
+    }
+
+    h1:first-of-type {
+        margin: 40px 0;
+        font-weight: bold;
+    }
+    h2 {
+        color: $laravel-color;
+        padding: 10px 0;
+        border-bottom: 1px dashed $gray-lmv;
+    }
+    img {
+        @extends .img-responsive;
+        margin: auto;
+    }
+    table {
+        @extend .table;
+        @extend .table-striped;
+        @extend .table-bordered;
+    }
+    table:last-of-type {
+        margin-bottom: 0;
     }
 
     .annotations-empty {
@@ -304,6 +320,15 @@ footer {
         background-color: $table-bg-accent;
         border-radius: $border-radius-small;
     }
+}
+
+/*
+ |--------------------------------------------------------------------------
+ | TOOLS
+ |--------------------------------------------------------------------------
+ */
+.tools-cont h2:first-of-type {
+    margin-top: 0;
 }
 
 /*

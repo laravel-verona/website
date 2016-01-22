@@ -1901,20 +1901,20 @@
         },
         {
             "name": "webuni/commonmark-table-extension",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webuni/commonmark-table-extension.git",
-                "reference": "174a2729edb9b50c8fd66cad451a10ef1f12e31b"
+                "reference": "c4e70a3705f562cc08e0b6f80803dcfd0fa57173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webuni/commonmark-table-extension/zipball/174a2729edb9b50c8fd66cad451a10ef1f12e31b",
-                "reference": "174a2729edb9b50c8fd66cad451a10ef1f12e31b",
+                "url": "https://api.github.com/repos/webuni/commonmark-table-extension/zipball/c4e70a3705f562cc08e0b6f80803dcfd0fa57173",
+                "reference": "c4e70a3705f562cc08e0b6f80803dcfd0fa57173",
                 "shasum": ""
             },
             "require": {
-                "league/commonmark": "^0.11|^0.12",
+                "league/commonmark": "^0.11|^0.12|^0.13",
                 "php": ">=5.4"
             },
             "require-dev": {
@@ -1951,7 +1951,7 @@
                 "markdown",
                 "table"
             ],
-            "time": "2015-11-05 14:44:58"
+            "time": "2016-01-14 22:54:18"
         }
     ],
     "packages-dev": [

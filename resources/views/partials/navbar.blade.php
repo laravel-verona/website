@@ -23,6 +23,10 @@
                     <a href="{{ route('home') }}">{{ trans('lmv.home.title') }}</a>
                 </li>
 
+                <li class="{{ $routeName === 'tools' ? 'active' : 'inactive' }}">
+                    <a href="{{ route('tools') }}">{{ trans('lmv.tools.title') }}</a>
+                </li>
+
                 @if (count($meetupNav))
                 <li class="dropdown {{ $isAnnotation ? 'active' : 'inactive' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

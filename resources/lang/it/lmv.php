@@ -30,6 +30,10 @@ return [
         'reminder'  => "Ti aspettiamo :date, dalle :start_hour alle :end_hour, al :name",
     ],
 
+    'tools' => [
+        'title' => "Tools",
+    ],
+
     'annotations' => [
         'menu'        => 'Annotations',
         'title'       => 'Annotations &middot; :date',
