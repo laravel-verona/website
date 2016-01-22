@@ -112,9 +112,9 @@ class Annotation extends Collection
     }
 
     /**
-     * Ottieni l'elenco degli Headings presenti nel file markdown
+     * Ottieni l'elenco degli Headings presenti nel file markdown.
      *
-     * @param  integer $importance
+     * @param  int $importance
      * @return array
      */
     public function getHeadings($importance = 1)
