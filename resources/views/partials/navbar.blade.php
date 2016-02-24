@@ -35,7 +35,7 @@
 
                     <ul class="dropdown-menu">
                         @foreach($meetupNav as $meetup)
-                        <li class="text-capitalize {{ ($isAnnotation and $router->parameter('date') == $meetup->date->format('Y-m-d')) ? 'active' : 'inactive' }}">
+                        <li class="text-capitalize {{ ($isAnnotation and $router and $router->parameter('date') == $meetup->date->format('Y-m-d')) ? 'active' : 'inactive' }}">
                             <a href="{{ route('annotations.index', $meetup->path) }}">{{ $meetup->date->format('l j F Y') }}</a>
                         </li>
                         @endforeach
