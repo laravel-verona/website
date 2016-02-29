@@ -4,9 +4,9 @@ use Jenssegers\Date\Date;
 
 return [
     'event' => [
-        'name'  => '4° Laravel Meetup Verona',
-        'start' => Date::create(2016, 02, 27, 14, 30),
-        'end'   => Date::create(2016, 02, 27, 18, 00),
+        'name'  => '5° Laravel Meetup Verona',
+        'start' => Date::create(2016, 03, 19, 14, 30),
+        'end'   => Date::create(2016, 03, 19, 18, 00),
         'url'   => false,
         'venue' => [
             'name'      => 'Vecomp SpA',
