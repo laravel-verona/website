@@ -7,7 +7,7 @@ return [
         'name'  => '5° Laravel Meetup Verona',
         'start' => Date::create(2016, 03, 19, 14, 30),
         'end'   => Date::create(2016, 03, 19, 18, 00),
-        'url'   => false,
+        'url'   => 'http://www.meetup.com/it-IT/laravel-verona/events/229236756/',
         'venue' => [
             'name'      => 'Vecomp SpA',
             'address'   => 'Via Alberto Dominutti 2, Verona (VR)',
