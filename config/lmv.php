@@ -5,9 +5,9 @@ use Jenssegers\Date\Date;
 return [
     'event' => [
         'name'  => '6° Laravel Meetup Verona',
-        'start' => Date::create(2016, 04, 23, 14, 30),
-        'end'   => Date::create(2016, 04, 23, 18, 00),
-        'url'   => 'http://www.meetup.com/it-IT/laravel-verona/events/230112066/',
+        'start' => Date::create(2016, 05, 07, 14, 30),
+        'end'   => Date::create(2016, 05, 07, 18, 00),
+        'url'   => 'http://www.meetup.com/it-IT/laravel-verona/events/230669291/',
         'venue' => [
             'name'      => 'Vecomp SpA',
             'address'   => 'Via Alberto Dominutti 2, Verona (VR)',
