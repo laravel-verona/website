@@ -6,7 +6,7 @@
   "dependencies": {
     "laravel-elixir": "^5.0.0",
     "bootstrap-sass": "^3.0.0",
-    "jquery": "^2.2.3",
+    "jquery": "^3.5.0",
     "animate.css": "^3.5.1",
     "jquery-countdown": "^2.0.5"
   }
